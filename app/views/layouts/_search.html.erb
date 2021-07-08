@@ -1,8 +1,10 @@
-<%= form_with url: search_path, method: :get, local: true do |f| %>
-  <%= f.search_field :content %>
-  <%= f.select :model, [["User", "user"], ["Book", "book"]] %>
-  <%= f.select :method, [["完全一致", "perfect"], ["前方一致", "front"], ["後方一致", "back"], ["部分一致", "part"]] %>
-  <%= f.submit "検索" %>
+<% if user_signed_in? %>
+  <%= form_with url: search_path, method: :get, local: true do |f| %>
+    <%= f.search_field :content %>
+    <%= f.select :model, [["User", "user"], ["Book", "book"]] %>
+    <%= f.select :method, [["完全一致", "perfect"], ["前方一致", "front"], ["後方一致", "back"], ["部分一致", "part"]] %>
+    <%= f.submit "検索" %>
+  <% end %>
 <% end %>
 
 <!--今回モデルを指定していないので、パラメータの値に対応したキーを指定する-->
