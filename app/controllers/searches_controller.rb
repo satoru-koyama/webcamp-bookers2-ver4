@@ -22,6 +22,9 @@ class SearchesController < ApplicationController
 				User.where.('name LIKE ?', '%'+content)
 			else
 				User.where('name LIKE ?', '%'+content+'%')
+				# モデルクラス.where(条件式)
+				# モデルクラス.where("カラム名 LIKE?", "検索したい文字列")
+				# '%'+content+'%'は「+」を使ってで文字列を結合させている
 			end
 		elsif model == 'book'
 			if method == 'perfect'
